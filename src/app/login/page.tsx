@@ -52,8 +52,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+      </div>
+      <div className="max-w-md w-full space-y-8 animate-fade-in">
         {/* Header */}
         <div className="text-center">
           <Link href="/" className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-4">
@@ -82,10 +87,10 @@ export default function LoginPage() {
         </div>
 
         {/* Login Form */}
-        <Card>
+        <Card className="shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
           <CardHeader>
-            <CardTitle>Connexion</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-bold">Connexion</CardTitle>
+            <CardDescription className="text-base">
               Entrez vos identifiants pour accéder à votre compte
             </CardDescription>
           </CardHeader>
@@ -160,7 +165,7 @@ export default function LoginPage() {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
                 disabled={isLoading}
               >
                 {isLoading ? 'Connexion...' : t('auth.login')}
@@ -182,7 +187,7 @@ export default function LoginPage() {
         </Card>
 
         {/* Demo credentials */}
-        <Card className="bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 border-2 border-blue-200 dark:border-blue-700 shadow-lg">
           <CardContent className="pt-6">
             <h3 className="text-sm font-medium text-blue-900 dark:text-blue-100 mb-2">
               Comptes de démonstration

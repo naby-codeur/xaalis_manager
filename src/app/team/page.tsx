@@ -194,9 +194,9 @@ export default function TeamPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -268,7 +268,7 @@ export default function TeamPage() {
 
       <div className="p-6">
         {/* Filtres et recherche */}
-        <Card className="mb-6">
+        <Card className="mb-6 border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardContent className="pt-6">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1">
@@ -322,11 +322,11 @@ export default function TeamPage() {
 
         {/* Statistiques */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                  <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-xl shadow-lg">
+                  <Users className="h-7 w-7 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
@@ -396,7 +396,7 @@ export default function TeamPage() {
         </div>
 
         {/* Liste des membres */}
-        <Card>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Membres de l&apos;équipe</CardTitle>
             <CardDescription>
@@ -413,7 +413,7 @@ export default function TeamPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center justify-between p-4 border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:bg-gray-50/80 dark:hover:bg-gray-800/80 transition-all duration-300 hover:shadow-md hover-lift bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center">

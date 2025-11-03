@@ -83,9 +83,9 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -122,7 +122,7 @@ export default function ProfilePage() {
       <div className="p-6">
         <div className="max-w-4xl mx-auto space-y-6">
           {/* Informations personnelles */}
-          <Card>
+          <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <User className="w-5 h-5 mr-2" />
@@ -240,7 +240,7 @@ export default function ProfilePage() {
           </Card>
 
           {/* Informations du compte */}
-          <Card>
+          <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Shield className="w-5 h-5 mr-2" />
@@ -295,7 +295,7 @@ export default function ProfilePage() {
 
           {/* Actions rapides */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="hover:shadow-xl transition-all duration-300 hover-lift cursor-pointer border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <Bell className="w-8 h-8 mx-auto mb-3 text-blue-600" />
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
@@ -307,7 +307,7 @@ export default function ProfilePage() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="hover:shadow-xl transition-all duration-300 hover-lift cursor-pointer border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <Lock className="w-8 h-8 mx-auto mb-3 text-green-600" />
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
@@ -319,7 +319,7 @@ export default function ProfilePage() {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="hover:shadow-xl transition-all duration-300 hover-lift cursor-pointer border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
               <CardContent className="p-6 text-center">
                 <CreditCard className="w-8 h-8 mx-auto mb-3 text-purple-600" />
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">

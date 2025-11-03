@@ -168,9 +168,9 @@ export default function ProjectsPage() {
   const completedProjects = projects.filter(p => p.status === 'completed').length
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -192,25 +192,25 @@ export default function ProjectsPage() {
       <div className="p-6">
         {/* Statistiques */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                     Budget Total
                   </p>
                   <p className="text-2xl font-bold text-gray-900 dark:text-white">
                     {formatCurrency(totalBudget)}
                   </p>
                 </div>
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                  <DollarSign className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <div className="p-4 bg-blue-100 dark:bg-blue-900 rounded-xl shadow-lg">
+                  <DollarSign className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -266,7 +266,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Filtres */}
-        <Card className="mb-6">
+        <Card className="mb-6 border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row gap-4">
               <div className="flex-1">
@@ -325,7 +325,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
+                <Card className="hover:shadow-xl transition-all duration-300 hover-lift h-full border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">

@@ -160,9 +160,9 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -201,11 +201,11 @@ export default function DashboardPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card>
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                         {kpi.title}
                       </p>
                       <p className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -225,8 +225,8 @@ export default function DashboardPage() {
                         <span className="text-sm text-gray-500 ml-1">vs mois dernier</span>
                       </div>
                     </div>
-                    <div className={`p-3 rounded-lg ${kpi.bgColor}`}>
-                      <kpi.icon className={`w-6 h-6 ${kpi.color}`} />
+                    <div className={`p-4 rounded-xl ${kpi.bgColor} shadow-lg`}>
+                      <kpi.icon className={`w-7 h-7 ${kpi.color}`} />
                     </div>
                   </div>
                 </CardContent>
@@ -238,7 +238,7 @@ export default function DashboardPage() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Évolution des finances */}
-          <Card>
+          <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
             <CardHeader>
               <CardTitle>Évolution des Finances</CardTitle>
               <CardDescription>
@@ -315,7 +315,7 @@ export default function DashboardPage() {
           </Card>
 
           {/* Répartition des dépenses */}
-          <Card>
+          <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
             <CardHeader>
               <CardTitle>Répartition des Dépenses</CardTitle>
               <CardDescription>
@@ -351,7 +351,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Transactions récentes */}
-        <Card>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
@@ -373,7 +373,7 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center justify-between p-4 border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:bg-gray-50/80 dark:hover:bg-gray-800/80 transition-all duration-300 hover:shadow-md hover-lift bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`p-2 rounded-lg ${

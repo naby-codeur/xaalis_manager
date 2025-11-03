@@ -102,9 +102,9 @@ export default function ReportsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -135,7 +135,7 @@ export default function ReportsPage() {
 
       <div className="p-6">
         {/* Filtres et Options */}
-        <Card className="mb-6">
+        <Card className="mb-6 border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row gap-4">
               <div className="flex-1">
@@ -208,7 +208,7 @@ export default function ReportsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <Card className="hover:shadow-lg transition-shadow duration-300">
+                <Card className="hover:shadow-xl transition-all duration-300 hover-lift border-0 shadow-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
                       <FileText className="w-8 h-8 text-blue-600 dark:text-blue-400" />
@@ -256,7 +256,7 @@ export default function ReportsPage() {
 
           <TabsContent value="overview" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card>
+              <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle>Évolution des Finances</CardTitle>
                   <CardDescription>Revenus et dépenses sur 6 mois</CardDescription>
@@ -291,7 +291,7 @@ export default function ReportsPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle>Répartition des Dépenses</CardTitle>
                   <CardDescription>Par catégorie ce mois-ci</CardDescription>
@@ -406,7 +406,7 @@ export default function ReportsPage() {
         </Tabs>
 
         {/* Actions d'Export */}
-        <Card>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Export de Données</CardTitle>
             <CardDescription>

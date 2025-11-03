@@ -197,9 +197,9 @@ export default function TransactionsPage() {
   const pendingTransactions = transactions.filter(t => t.status === 'pending').length
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -231,7 +231,7 @@ export default function TransactionsPage() {
       <div className="p-6">
         {/* Statistiques */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -249,29 +249,29 @@ export default function TransactionsPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                     Dépenses Totales
                   </p>
                   <p className="text-2xl font-bold text-red-600 dark:text-red-400">
                     {formatCurrency(totalExpenses)}
                   </p>
                 </div>
-                <div className="p-3 bg-red-100 dark:bg-red-900 rounded-lg">
-                  <TrendingDown className="w-6 h-6 text-red-600 dark:text-red-400" />
+                <div className="p-4 bg-red-100 dark:bg-red-900 rounded-xl shadow-lg">
+                  <TrendingDown className="w-7 h-7 text-red-600 dark:text-red-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                  <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                     Solde Net
                   </p>
                   <p className={`text-2xl font-bold ${
@@ -282,14 +282,14 @@ export default function TransactionsPage() {
                     {formatCurrency(totalIncome - totalExpenses)}
                   </p>
                 </div>
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                  <CreditCard className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <div className="p-4 bg-blue-100 dark:bg-blue-900 rounded-xl shadow-lg">
+                  <CreditCard className="w-7 h-7 text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -319,7 +319,7 @@ export default function TransactionsPage() {
         </Tabs>
 
         {/* Filtres */}
-        <Card className="mb-6">
+        <Card className="mb-6 border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row gap-4">
               <div className="flex-1">
@@ -375,7 +375,7 @@ export default function TransactionsPage() {
         </Card>
 
         {/* Liste des transactions */}
-        <Card>
+        <Card className="border-0 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>Transactions ({filteredTransactions.length})</CardTitle>
             <CardDescription>
@@ -392,7 +392,7 @@ export default function TransactionsPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center justify-between p-4 border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:bg-gray-50/80 dark:hover:bg-gray-800/80 transition-all duration-300 hover:shadow-md hover-lift bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
                   >
                     <div className="flex items-center space-x-4">
                       <div className={`p-2 rounded-lg ${

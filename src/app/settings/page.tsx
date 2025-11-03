@@ -93,9 +93,9 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="glass-effect border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
@@ -106,7 +106,11 @@ export default function SettingsPage() {
                 Personnalisez votre expérience et gérez vos préférences
               </p>
             </div>
-            <Button onClick={handleSave} disabled={isLoading}>
+            <Button 
+              onClick={handleSave} 
+              disabled={isLoading}
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
+            >
               <Save className="w-4 h-4 mr-2" />
               {isLoading ? 'Sauvegarde...' : 'Sauvegarder'}
             </Button>
@@ -117,20 +121,45 @@ export default function SettingsPage() {
       <div className="p-6">
         <div className="max-w-4xl mx-auto">
           <Tabs defaultValue="notifications" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="notifications">Notifications</TabsTrigger>
-              <TabsTrigger value="security">Sécurité</TabsTrigger>
-              <TabsTrigger value="appearance">Apparence</TabsTrigger>
-              <TabsTrigger value="data">Données</TabsTrigger>
-              <TabsTrigger value="account">Compte</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-5 bg-gray-100 dark:bg-gray-800">
+              <TabsTrigger 
+                value="notifications"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-cyan-500 data-[state=active]:text-white font-medium transition-all duration-300"
+              >
+                Notifications
+              </TabsTrigger>
+              <TabsTrigger 
+                value="security"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-orange-500 data-[state=active]:text-white font-medium transition-all duration-300"
+              >
+                Sécurité
+              </TabsTrigger>
+              <TabsTrigger 
+                value="appearance"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 data-[state=active]:text-white font-medium transition-all duration-300"
+              >
+                Apparence
+              </TabsTrigger>
+              <TabsTrigger 
+                value="data"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500 data-[state=active]:to-blue-500 data-[state=active]:text-white font-medium transition-all duration-300"
+              >
+                Données
+              </TabsTrigger>
+              <TabsTrigger 
+                value="account"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-500 data-[state=active]:text-white font-medium transition-all duration-300"
+              >
+                Compte
+              </TabsTrigger>
             </TabsList>
 
             {/* Notifications */}
             <TabsContent value="notifications" className="space-y-6">
-              <Card>
+              <Card className="border-2 border-blue-100 dark:border-blue-900 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Bell className="w-5 h-5 mr-2" />
+                    <Bell className="w-5 h-5 mr-2 text-blue-500" />
                     Préférences de Notification
                   </CardTitle>
                   <CardDescription>
@@ -149,6 +178,7 @@ export default function SettingsPage() {
                       id="email-notifications"
                       checked={settings.emailNotifications}
                       onCheckedChange={(checked: boolean) => handleSettingChange('emailNotifications', checked)}
+                      className="data-[state=checked]:bg-blue-500"
                     />
                   </div>
 
@@ -163,6 +193,7 @@ export default function SettingsPage() {
                       id="push-notifications"
                       checked={settings.pushNotifications}
                       onCheckedChange={(checked: boolean) => handleSettingChange('pushNotifications', checked)}
+                      className="data-[state=checked]:bg-cyan-500"
                     />
                   </div>
 
@@ -177,6 +208,7 @@ export default function SettingsPage() {
                       id="sms-notifications"
                       checked={settings.smsNotifications}
                       onCheckedChange={(checked: boolean) => handleSettingChange('smsNotifications', checked)}
+                      className="data-[state=checked]:bg-green-500"
                     />
                   </div>
 
@@ -191,6 +223,7 @@ export default function SettingsPage() {
                       id="weekly-reports"
                       checked={settings.weeklyReports}
                       onCheckedChange={(checked: boolean) => handleSettingChange('weeklyReports', checked)}
+                      className="data-[state=checked]:bg-purple-500"
                     />
                   </div>
                 </CardContent>
@@ -199,10 +232,10 @@ export default function SettingsPage() {
 
             {/* Sécurité */}
             <TabsContent value="security" className="space-y-6">
-              <Card>
+              <Card className="border-2 border-red-100 dark:border-red-900 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Shield className="w-5 h-5 mr-2" />
+                    <Shield className="w-5 h-5 mr-2 text-red-500" />
                     Sécurité du Compte
                   </CardTitle>
                   <CardDescription>
@@ -221,6 +254,7 @@ export default function SettingsPage() {
                       id="two-factor"
                       checked={settings.twoFactorAuth}
                       onCheckedChange={(checked: boolean) => handleSettingChange('twoFactorAuth', checked)}
+                      className="data-[state=checked]:bg-red-500"
                     />
                   </div>
 
@@ -230,7 +264,7 @@ export default function SettingsPage() {
                       value={settings.sessionTimeout}
                       onValueChange={(value) => handleSettingChange('sessionTimeout', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-orange-200 dark:border-orange-800 focus:ring-orange-500 focus:border-orange-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -248,7 +282,7 @@ export default function SettingsPage() {
                       value={settings.passwordExpiry}
                       onValueChange={(value) => handleSettingChange('passwordExpiry', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-orange-200 dark:border-orange-800 focus:ring-orange-500 focus:border-orange-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -265,10 +299,10 @@ export default function SettingsPage() {
 
             {/* Apparence */}
             <TabsContent value="appearance" className="space-y-6">
-              <Card>
+              <Card className="border-2 border-purple-100 dark:border-purple-900 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Palette className="w-5 h-5 mr-2" />
+                    <Palette className="w-5 h-5 mr-2 text-purple-500" />
                     Apparence et Langue
                   </CardTitle>
                   <CardDescription>
@@ -282,7 +316,7 @@ export default function SettingsPage() {
                       value={settings.theme}
                       onValueChange={(value) => handleSettingChange('theme', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-purple-200 dark:border-purple-800 focus:ring-purple-500 focus:border-purple-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -314,7 +348,7 @@ export default function SettingsPage() {
                       value={language}
                       onValueChange={(value) => setLanguage(value as 'fr' | 'en' | 'ar')}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-pink-200 dark:border-pink-800 focus:ring-pink-500 focus:border-pink-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -331,7 +365,7 @@ export default function SettingsPage() {
                       value={settings.fontSize}
                       onValueChange={(value) => handleSettingChange('fontSize', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-purple-200 dark:border-purple-800 focus:ring-purple-500 focus:border-purple-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -353,6 +387,7 @@ export default function SettingsPage() {
                       id="compact-mode"
                       checked={settings.compactMode}
                       onCheckedChange={(checked: boolean) => handleSettingChange('compactMode', checked)}
+                      className="data-[state=checked]:bg-pink-500"
                     />
                   </div>
                 </CardContent>
@@ -361,10 +396,10 @@ export default function SettingsPage() {
 
             {/* Données */}
             <TabsContent value="data" className="space-y-6">
-              <Card>
+              <Card className="border-2 border-indigo-100 dark:border-indigo-900 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Database className="w-5 h-5 mr-2" />
+                    <Database className="w-5 h-5 mr-2 text-indigo-500" />
                     Gestion des Données
                   </CardTitle>
                   <CardDescription>
@@ -383,6 +418,7 @@ export default function SettingsPage() {
                       id="auto-backup"
                       checked={settings.autoBackup}
                       onCheckedChange={(checked: boolean) => handleSettingChange('autoBackup', checked)}
+                      className="data-[state=checked]:bg-indigo-500"
                     />
                   </div>
 
@@ -392,7 +428,7 @@ export default function SettingsPage() {
                       value={settings.backupFrequency}
                       onValueChange={(value) => handleSettingChange('backupFrequency', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-indigo-200 dark:border-indigo-800 focus:ring-indigo-500 focus:border-indigo-500">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -403,12 +439,18 @@ export default function SettingsPage() {
                     </Select>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <Button variant="outline" onClick={handleExportData}>
+                  <div className="flex items-center justify-between gap-4">
+                    <Button 
+                      onClick={handleExportData}
+                      className="flex-1 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
+                    >
                       <Download className="w-4 h-4 mr-2" />
                       Exporter mes données
                     </Button>
-                    <Button variant="outline">
+                    <Button 
+                      variant="outline"
+                      className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
+                    >
                       <Upload className="w-4 h-4 mr-2" />
                       Importer des données
                     </Button>
@@ -419,10 +461,10 @@ export default function SettingsPage() {
 
             {/* Compte */}
             <TabsContent value="account" className="space-y-6">
-              <Card>
+              <Card className="border-2 border-emerald-100 dark:border-emerald-900 shadow-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Key className="w-5 h-5 mr-2" />
+                    <Key className="w-5 h-5 mr-2 text-emerald-500" />
                     Mot de Passe
                   </CardTitle>
                   <CardDescription>
@@ -471,14 +513,14 @@ export default function SettingsPage() {
                     />
                   </div>
 
-                  <Button>
+                  <Button className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
                     <Key className="w-4 h-4 mr-2" />
                     Changer le mot de passe
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="border-red-200 dark:border-red-800">
+              <Card className="border-2 border-red-200 dark:border-red-800 shadow-lg bg-red-50/50 dark:bg-red-900/20 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center text-red-600">
                     <Trash2 className="w-5 h-5 mr-2" />
@@ -496,7 +538,11 @@ export default function SettingsPage() {
                         Cette action supprimera définitivement votre compte et toutes vos données
                       </p>
                     </div>
-                    <Button variant="destructive" onClick={handleDeleteAccount}>
+                    <Button 
+                      variant="destructive" 
+                      onClick={handleDeleteAccount}
+                      className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
+                    >
                       <Trash2 className="w-4 h-4 mr-2" />
                       Supprimer
                     </Button>

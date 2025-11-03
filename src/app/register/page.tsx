@@ -107,9 +107,14 @@ export default function RegisterPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full">
-          <Card>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-md w-full animate-fade-in">
+          <Card className="shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
             <CardContent className="pt-6">
               <div className="text-center">
                 <CheckCircle className="mx-auto h-12 w-12 text-green-600 mb-4" />
@@ -138,8 +143,13 @@ export default function RegisterPage() {
   // Deux modes: sans token (Admin crée org) ou avec token (accepter invitation)
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
+      </div>
+      <div className="max-w-md w-full space-y-8 animate-fade-in">
         {/* Header */}
         <div className="text-center">
           <Link href="/" className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-4">
@@ -168,10 +178,10 @@ export default function RegisterPage() {
         </div>
 
         {/* Registration Form */}
-        <Card>
+        <Card className="shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover-lift">
           <CardHeader>
-            <CardTitle>{token ? 'Accepter l\'invitation' : 'Créer mon organisation'}</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-bold">{token ? 'Accepter l\'invitation' : 'Créer mon organisation'}</CardTitle>
+            <CardDescription className="text-base">
               {token ? 'Complétez vos informations pour rejoindre l\'organisation' : 'Créez le compte administrateur et votre organisation'}
             </CardDescription>
           </CardHeader>
@@ -296,7 +306,7 @@ export default function RegisterPage() {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
                 disabled={isLoading}
               >
                 {isLoading ? 'Création du compte...' : t('auth.register')}
